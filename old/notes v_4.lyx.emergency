@@ -1,0 +1,792 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\newcommand{\str}[2]{\canselto{#2}{#1}}
+\newcommand{\x}{\;}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Вычисление избыточного тока
+\end_layout
+
+\begin_layout Standard
+Предлагается изучить вопрос о наличии избыточного тока в двух-контактном
+ сквиде, в одном из контактов которого становятся по какким-то причинам
+ важны высшие гармоники (надо будет разобраться с тем что это могут быть
+ за причины..).
+ Далее такой контакт я буду называть необычным.
+ Прежде чем переходить к сквиду предлагается повторить выкладки касаюиеся
+ просто классического эффекта джозефсона, понять как получаются вольт-амперные
+ характеристики в этих случаях чтобы понять как пожно подойти к вычислению
+ и что является причиной появления ибыточного тока.
+\end_layout
+
+\begin_layout Section
+Нестационарный эффект Джозефсона.
+ RSJ-model.
+\end_layout
+
+\begin_layout Standard
+В RSJ модели заменяя, джозефсоновский переход эквивалентной схемой с парралельно
+ подклченным сопротивлением, имеем:
+\end_layout
+
+\begin_layout Standard
+Ток через 
+\begin_inset Quotes eld
+\end_inset
+
+чистый
+\begin_inset Quotes erd
+\end_inset
+
+ дж.
+ контакт: 
+\begin_inset Formula $I_{c}\sin\gamma$
+\end_inset
+
+, где 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ - разность фаз, по разные стороны от перехода.
+\end_layout
+
+\begin_layout Standard
+Ток через сопротивление 
+\begin_inset Formula $R$
+\end_inset
+
+: 
+\begin_inset Formula $U/R$
+\end_inset
+
+, где 
+\begin_inset Formula $U$
+\end_inset
+
+, связано с 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ соотношением 
+\begin_inset Formula $2eU=\hbar\frac{\partial\gamma}{\partial t}$
+\end_inset
+
+.
+ Имеем таким образом:
+\begin_inset Formula 
+\begin{equation}
+I=I_{c}\sin\gamma+\frac{\hbar}{2eR}\frac{\partial\gamma}{\partial t}\label{eq:RSJ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Нужно заметить что с точки зрения RCSJ модели, отличающейся включенной емкостью,
+ написанное выражение соответствует пределу малой емкости, или в терминах
+ washboard-модели бесконечно малой массе частицы, приводящей к преобладанию
+ вязкости над инерцией (потом хорошо бы рассмотреть общий случай)
+\end_layout
+
+\begin_layout Standard
+Наша цель пока получить зависимость напряжения от времени.
+ 
+\end_layout
+
+\begin_layout Standard
+Обезразмеричаем уравнение, вводя ток: 
+\begin_inset Formula $\tilde{I}=I/I_{c}$
+\end_inset
+
+ и частоту: 
+\begin_inset Formula $\omega=2eI_{c}R/\hbar$
+\end_inset
+
+.
+ Получим (далее опускаем тильду для краткости):
+\begin_inset Formula 
+\begin{equation}
+I-\sin\gamma=\frac{\partial\gamma}{\partial t}\label{eq:RSJ_dl}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решение запишется в виде:
+\begin_inset Formula 
+\begin{equation}
+t=\int\frac{d\gamma}{I-\sin\gamma}\label{eq:RSJsol}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+с точностью до произвольной константы соответствующей началу отсчета времени.
+\end_layout
+
+\begin_layout Standard
+Интеграл с помощью универсальной тригонометрической подстановки 
+\begin_inset Formula $x=\tan\frac{\gamma}{2}$
+\end_inset
+
+,
+\begin_inset Formula $d\gamma=\frac{2dx}{x^{2}+1}$
+\end_inset
+
+, 
+\begin_inset Formula $\sin\gamma=\frac{2x}{x^{2}+1}$
+\end_inset
+
+ приводится к табличному виду:
+\begin_inset Formula 
+\begin{align}
+t & =\int\frac{d\gamma}{I-\sin\gamma}=\int\frac{2dx}{I(x^{2}+1)-2x}=\int\frac{2Idx}{I^{2}x^{2}-2Ix+I^{2}}=\nonumber \\
+ & =\frac{2I}{I^{2}-1}\int\frac{dx}{\left(\frac{Ix-1}{\sqrt{I^{2}-1}}\right)^{2}+1}=\frac{2\sqrt{I^{2}-1}}{I^{2}-1}\int\frac{d\frac{Ix-1}{\sqrt{I^{2}-1}}}{(\frac{Ix+1}{\sqrt{I^{2}+1}})^{2}+1}=\label{eq:RSJsol_an}\\
+ & =\frac{2}{\sqrt{I^{2}-1}}\arctan\frac{I\tan\frac{\gamma}{2}-1}{\sqrt{I^{2}-1}}\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выразим 
+\begin_inset Formula $t$
+\end_inset
+
+ из соотн.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RSJsol_an"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+\frac{I\tan\frac{\gamma}{2}-1}{\sqrt{I^{2}-1}} & =\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)\nonumber \\
+I\tan\frac{\gamma}{2} & =\sqrt{I^{2}-1}\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+1\label{eq:RSGsol_an_dir}\\
+\gamma & =2\arctan\frac{1}{I}\left\{ \sqrt{I^{2}-1}\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+1\right\} \nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Теперь посчитаем производную:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\gamma}{\partial t} & =2\frac{\partial}{\partial t}\arctan\left\{ \frac{\sqrt{I^{2}-1}}{I}\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\frac{1}{I}\right\} \\
+ & =2\frac{I^{2}-1}{2I}\left\{ \left[\left(\frac{\sqrt{I^{2}-1}}{I}\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\frac{1}{I}\right)^{2}+1\right]\cos^{2}\left(\sqrt{I^{2}-1}\frac{t}{2}\right)\right\} ^{-1}\\
+ & =\frac{I^{2}-1}{I}\left\{ \left(\frac{\sqrt{I^{2}-1}}{I}\sin\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\frac{1}{I}\cos\left(\sqrt{I^{2}-1}\frac{t}{2}\right)\right)^{2}+\cos^{2}\left(\sqrt{I^{2}-1}\frac{t}{2}\right)\right\} ^{-1}\\
+ & =\frac{I^{2}-1}{I}\left\{ \frac{I^{2}-1}{I^{2}}\sin^{2}\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\frac{1}{I^{2}}\cos^{2}\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\cos^{2}\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+\frac{\sqrt{I^{2}-1}}{I^{2}}\sin\left(t\sqrt{I^{2}-1}\right)\right\} ^{-1}\\
+ & =\frac{I^{2}-1}{I+\frac{1}{I}\cos\left(t\sqrt{I^{2}-1}\right)+\frac{\sqrt{I^{2}-1}}{I^{2}}\sin\left(t\sqrt{I^{2}-1}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+получаем выражение, которое отличается от искомого только сдвигом по времени:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\gamma}{\partial t}=\frac{I^{2}-1}{I+\cos\left(t\sqrt{I^{2}-1}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Что с точностью до переобозначений совпадает с нужным выражением для 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Вольт амперная характеристика извлекается усреднением этого выражения по
+ времени.
+ Правильный ответ, в котором восстановленны все размерности выглядит так:
+\begin_inset Formula 
+\[
+\overline{U}=R\sqrt{I^{2}-I_{c}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Обыкновенный SQUID.
+ RSJ-model.
+\end_layout
+
+\begin_layout Standard
+Нетрудно убедится, что случай сквида отличается от рассмотренного ранее
+ лешь перенормировкой частоты колебаний напряжения и критического тока.
+\end_layout
+
+\begin_layout Standard
+Действительно, уравнение которое нам надо решить на этот раз имеет вид:
+\begin_inset Formula 
+\begin{equation}
+I=I_{c}\sin\gamma+I_{c}\sin(\gamma+\alpha)+\frac{\hbar}{2eR}\frac{\partial\gamma}{\partial t}\label{eq:SQUID_RSJ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $\alpha$
+\end_inset
+
+- разность фаз между двумя контактами сквида, связанная с магнитным потоком
+ через его кольцо.
+ Это уравнение приводится к виду:
+\begin_inset Formula 
+\begin{equation}
+I=I_{c}2\sin(\gamma+\frac{\alpha}{2})\cos\frac{\alpha}{2}+\frac{\hbar}{2eR}\frac{\partial\gamma}{\partial t}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Решение этого уравнения имеет прежний вид 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RSJsol"
+
+\end_inset
+
+, где безразмерные ток и время имеют вид:
+\begin_inset Formula 
+\begin{align}
+\tilde{I} & =\frac{I}{I_{c}^{'}} & I_{c}^{'}=2I_{c}\cos\frac{\alpha}{2}\nonumber \\
+\tilde{t} & =\omega^{'}t & \omega^{'}=2\omega\cos\frac{\alpha}{2}\label{eq:SQUID_dim}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ВАХ будет для этого случая будет точно такая же только с перенормированным
+ значением критического тока, который теперь изменяя магнитное поле можно
+ менять в перделах от 
+\begin_inset Formula $-2I_{c}$
+\end_inset
+
+ до 
+\begin_inset Formula $2I_{c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Необычный SQUID.
+ RSJ-model.
+\end_layout
+
+\begin_layout Paragraph*
+Попытка решения в лоб
+\end_layout
+
+\begin_layout Standard
+В этом случае в уравнение добавляется еще один член:
+\begin_inset Formula 
+\begin{equation}
+I=I_{c}\left(\sin\gamma+a\sin2\gamma\right)+I_{c}\sin(\gamma+\alpha)+\frac{\hbar}{2e}\frac{\partial\gamma}{\partial t}\label{eq:modSQUID_RSJ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $a$
+\end_inset
+
+ мы считаем малым параметром.
+ Его решение имеет вид:
+\begin_inset Formula 
+\begin{equation}
+t=\int\frac{d\gamma}{I-\sin\gamma-a\sin(2\gamma+\alpha)}\label{eq:mod_SQUID_sol}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Раскладывая знаменатель по параметру 
+\begin_inset Formula $a$
+\end_inset
+
+, проведя те же выкладки что и в предыдущих разделах получим в первом порядке:
+\begin_inset Formula 
+\begin{align}
+t & =f_{0}(\gamma)+af_{1}(\gamma,\alpha);\label{eq:mod_SQUID_sol_gen_form}\\
+\text{где }f_{0}(\gamma)\text{ } & =\frac{2}{\sqrt{I^{2}-1}}\arctan\frac{I\tan\frac{\gamma}{2}-1}{\sqrt{I^{2}-1}}\\
+f_{1}(\gamma,\alpha) & =\int\frac{\sin(\alpha+2\gamma)}{(I-\sin\gamma)^{2}}d\gamma
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{1}(\gamma,\alpha)$
+\end_inset
+
+ оказывается довольно громоздкой комбинацией тригонометрических функций
+ и делает безнадежными попытки точно выразить 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ как функцию 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Попробуем, однако решить последнее уравнение итеративно:
+\begin_inset Formula 
+\begin{align*}
+\gamma_{0} & =f_{0}^{-1}(t)=2\arctan\frac{1}{I}\left\{ \sqrt{I^{2}-1}\tan\left(\sqrt{I^{2}-1}\frac{t}{2}\right)+1\right\} \\
+\gamma & =\gamma_{0}+\gamma_{1};\;\;\;\gamma_{1}\ll1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставив в уравнение 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:mod_SQUID_sol_gen_form"
+
+\end_inset
+
+ и раскладываясь до первого порядка получим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=f_{0}(\gamma_{0}+\gamma_{1})+af_{1}(\gamma_{0}+\gamma_{1},\alpha)\approx f_{0}(\gamma_{0})+f{}_{0}^{'}(\gamma_{0})\gamma_{1}+af_{1}(\gamma_{0},\alpha)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+И таким образом для 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ получим:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\gamma_{1}=-a\frac{f_{1}(\gamma_{0},\alpha)}{f_{0}^{'}(\gamma_{0})}\label{eq:first_correction_mod_SQUID}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вычисление приводит:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{0}^{'}(\gamma_{0})=\frac{\left(\tan^{2}\left(\frac{\gamma_{0}}{2}\right)+1\right)}{I\tan^{2}\left(\frac{\gamma_{0}}{2}\right)+I-2\tan\left(\frac{\gamma_{0}}{2}\right)}=\frac{\cos\left(\omega t+2\right)+2\omega^{2}+1}{(\omega^{2}+1)\left(-2\omega\sin\left(\omega t+2\right)+\cos\left(\omega t+2\right)+2\omega^{2}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В пределе больших токов 
+\begin_inset Formula $I\gg1$
+\end_inset
+
+, получим:
+\begin_inset Formula 
+\begin{align*}
+f_{0}(\gamma)\text{ } & =\frac{2}{\sqrt{I^{2}-1}}\arctan\frac{I\tan\frac{\gamma}{2}-1}{\sqrt{I^{2}-1}}\approx\frac{\gamma}{I}\\
+f_{0}^{'}(\gamma_{0}) & \approx\frac{1}{I}\\
+f_{1}(\gamma,\alpha) & =\int\frac{\sin(\alpha+2\gamma)}{(I-\sin\gamma)^{2}}d\gamma\approx\frac{1}{I^{2}}\int\sin(\alpha+2\gamma)d\gamma=-\frac{1}{2I^{2}}\cos(\alpha+2\gamma)\\
+\gamma_{1} & =-a\frac{f_{1}(\gamma_{0},\alpha)}{f_{0}^{'}(\gamma_{0})}\approx\frac{a}{2I}\cos(\alpha+2\gamma_{0})\approx\frac{a}{2I}\cos(\alpha+2It)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Собирая все вместе получим следующий ответ для 
+\begin_inset Formula $\gamma$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\gamma & \approx It+\frac{a}{2I}\cos(\alpha+2It)+O(a,\frac{1}{I})T\\
+U & \approx I+a\cos(\alpha+2It)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поправка к закону Ома оказывается быстроосцилирующей при больших токах и
+ усреднится в ноль.
+ 
+\end_layout
+
+\begin_layout Section
+Теория возмущений в исходном уравнении по параметру 
+\begin_inset Formula $I_{c}/I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Обыкновенный SQUID.
+ RSJ-model.
+\end_layout
+
+\begin_layout Paragraph
+Общая итеративная формула.
+\end_layout
+
+\begin_layout Standard
+Попробуем получить ответ для обыкновенного сквида, проводя теорию возмущений
+ в исходном уравнении.
+\end_layout
+
+\begin_layout Standard
+Мы должны воспроизвести ряд
+\begin_inset Formula 
+\[
+U=\sqrt{I^{2}-1}\approx I-\frac{1}{2}\frac{1}{I}-\frac{1}{8}\frac{1}{I^{3}}-\frac{1}{16}\frac{1}{I^{5}}o\left(\frac{1}{I^{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Из уравнения 
+\begin_inset Formula 
+\begin{align*}
+\dot{\gamma} & =I-\sin\gamma\\
+\frac{\partial\gamma}{\partial\tau} & =1-\frac{1}{I}\sin\gamma
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В последнем уравнении выполнена замена 
+\begin_inset Formula $t=I\tau$
+\end_inset
+
+, чтобы явно выделить малый параметр.
+\end_layout
+
+\begin_layout Standard
+Строим теорию возмущений:
+\begin_inset Formula 
+\[
+\gamma=\gamma_{0}+\gamma_{1}+\gamma_{2}+\dots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Предположим, что нам известен ряд для 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ вплоть до 
+\begin_inset Formula $n-1$
+\end_inset
+
+ порядка.
+ Получим формулу для 
+\begin_inset Formula $n$
+\end_inset
+
+-того прпрприближения.
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{d\tau}\left(\gamma_{0}+\dots+\gamma_{n}\right) & =1-\frac{1}{I}\sin\left(\gamma_{0}+\dots+\gamma_{n}\right)=1-\frac{1}{I}\sin\left(\gamma_{0}+\dots+\gamma_{n-1}\right)\cancelto{1}{\cos\gamma_{n}}+\cancelto{0}{\frac{1}{I}\cos\left(\gamma_{0}+\dots+\gamma_{n}\right)\sin\gamma_{n}}\\
+\frac{d}{d\tau}\left(\gamma_{0}+\dots+\gamma_{n}\right) & =1-\frac{1}{I}\sin\left(\gamma_{0}+\dots+\gamma_{n-1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ровно тоже самое соотношение верно и для всех порядков меньших 
+\begin_inset Formula $n$
+\end_inset
+
+ и в частности для 
+\begin_inset Formula $n-1$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{d}{d\tau}\left(\gamma_{0}+\dots+\gamma_{n-1}\right)=1-\frac{1}{I}\sin\left(\gamma_{0}+\dots+\gamma_{n-2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Комбинируя два последних равентсва получим:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{n}}{d\tau} & =\frac{1}{I}\left(\sin\left(\gamma_{0}+\dots+\gamma_{n-2}\right)-\sin\left(\gamma_{0}+\dots+\gamma_{n-1}\right)\right)=\frac{1}{I}\sin\left(\gamma_{0}+\dots+\gamma_{n-2}\right)\overbrace{\left\{ 1-\cos\gamma_{n-1}\right\} }^{\sim\gamma_{n-1}^{2}}-\frac{1}{I}\cos\left(\gamma_{0}+\dots+\gamma_{n-2}\right)\sin\gamma_{n-1}\approx\\
+ & \approx-\frac{1}{I}\gamma_{n-1}\cos\gamma_{0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{d\gamma_{n}}{d\tau}=-\frac{1}{I}\gamma_{n-1}\cos\gamma_{0}\label{eq:iter_SQUID_sol}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Первые порядки.
+\end_layout
+
+\begin_layout Standard
+Выполняя вычисления до первого порядка напрямую, а далее используя полученную
+ выше формулу 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:iter_SQUID_sol"
+
+\end_inset
+
+ получим для первых поправок к 
+\begin_inset Formula $\gamma$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Subparagraph
+Нулевой порядок:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{0}}{d\tau} & =1\\
+\gamma_{0} & =\tau
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+Первый порядок:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{1}}{d\tau} & =-\frac{1}{I}\sin\gamma_{0}=-\frac{1}{I}\sin\tau\\
+\gamma_{1} & =\frac{1}{I}\cos\tau
+\end{align*}
+
+\end_inset
+
+Второй порядок:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{2}}{d\tau} & =-\frac{1}{I^{2}}\cos^{2}\tau\\
+\gamma_{2} & =-\frac{1}{I^{2}}\left(\frac{\tau}{2}+\frac{\sin2\tau}{4}\right)
+\end{align*}
+
+\end_inset
+
+Третий порядок:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{3}}{d\tau} & =-\frac{1}{I^{3}}\left(\frac{\tau}{2}+\frac{\sin2\tau}{4}\right)\cos\tau\\
+\gamma_{3}=\frac{1}{I^{3}} & \left(\frac{1}{2}\tau\sin\tau-\frac{1}{6}\cos^{3}\tau+\frac{\cos\tau}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+Четвертый порядок:
+\begin_inset Formula 
+\begin{align*}
+\frac{d\gamma_{4}}{d\tau} & =-\frac{1}{I^{4}}\left(\frac{1}{2}\tau\sin\tau-\frac{1}{6}\cos^{3}\tau+\frac{\cos\tau}{2}\right)\cos\tau\\
+\gamma_{4}= & -\frac{1}{I^{4}}\left(\frac{3\tau}{16}+\frac{7}{48}\sin2\tau-\frac{1}{192}\sin4\tau-\frac{1}{8}\tau\cos2\tau\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\end_body
+\end_document
